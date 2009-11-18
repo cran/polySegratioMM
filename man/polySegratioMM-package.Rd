@@ -20,8 +20,8 @@ Marker dosage for autoployploids by Bayesian mixture models
   \tabular{ll}{
 Package: \tab polySegratioMM\cr
 Type: \tab Package\cr
-Version: \tab 0.4-1\cr
-Date: \tab 2008-07-18\cr
+Version: \tab 0.5-2\cr
+Date: \tab 2009-11-18\cr
 License: \tab  GPL-2
 }
 
@@ -64,7 +64,7 @@ be obtained with \code{\link{plotFitted}}. In addition,
 segregation ratios and fitted mixture model on the logit scale.
 
 }
-\author{Peter Baker \email{Peter.Baker@csiro.au}}
+\author{Peter Baker \email{p.baker1@uq.edu.au}}
 \references{
   \itemize{
   \item{J B S Haldane}{ (1930) Theoretical genetics of

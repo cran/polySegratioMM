@@ -67,6 +67,7 @@ inits <- setInits(x,x2)
 dumpInits(inits)
 writeJagsFile(x, x2, stem="test")
 
+\dontrun{
 ## run JAGS
 small <- setControl(x, burn.in=200, sample=500)
 writeControlFile(small)
@@ -77,7 +78,7 @@ print(rj)
 xj <- readJags(rj)
 dd <- dosagesJagsMix(xj, small, sr)
 print(dd)
-
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

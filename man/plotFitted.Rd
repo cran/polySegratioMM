@@ -97,7 +97,7 @@ plotTheoretical(ploidy.level=8, seg.ratios=NULL, n.components=NULL,
 }
 \value{ None.
 }
-\author{Peter Baker \email{Peter.Baker@csiro.au}}
+\author{Peter Baker \email{p.baker1@uq.edu.au}}
 \seealso{ \code{\link[coda]{summary.mcmc}} \code{\link[coda]{mcmc}}
   \code{\link{segratioMCMC}} \code{\link{readJags}}
   \code{\link{diagnosticsJagsMix}} \code{\link{runSegratioMM}} 
@@ -111,7 +111,7 @@ sr <-  segregationRatios(a1$markers)
 x <- setModel(3,8)
 
 ## fit simple model in one hit and summarise
-
+\dontrun{
 x.run <- runSegratioMM(sr, x, burn.in=200, sample=500)
 print(x.run)
 
@@ -121,7 +121,7 @@ a.plot <- plotFitted(sr, x.run$summary, density.plot=TRUE)
 print(a.plot)
 ## or the easier way
 plot(x.run, theoretical=TRUE)
-
+}
 }
 %Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

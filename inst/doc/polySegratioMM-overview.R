@@ -1,13 +1,13 @@
 ### R code from vignette source 'polySegratioMM-overview.Rnw'
 
 ###################################################
-### code chunk number 1: polySegratioMM-overview.Rnw:63-64
+### code chunk number 1: polySegratioMM-overview.Rnw:64-65
 ###################################################
 library(polySegratioMM)
 
 
 ###################################################
-### code chunk number 2: polySegratioMM-overview.Rnw:67-72
+### code chunk number 2: polySegratioMM-overview.Rnw:68-73
 ###################################################
 ##library(cacheSweave)  #  comment this out after development phase
 ## to use:    Sweave("polySegratioMM-overview.Rnw", driver=cacheSweaveDriver)
@@ -17,13 +17,13 @@ options(width=70, digits=4)
 
 
 ###################################################
-### code chunk number 3: polySegratioMM-overview.Rnw:90-91
+### code chunk number 3: polySegratioMM-overview.Rnw:91-92
 ###################################################
 data(hexmarkers)
 
 
 ###################################################
-### code chunk number 4: polySegratioMM-overview.Rnw:93-100
+### code chunk number 4: polySegratioMM-overview.Rnw:94-101
 ###################################################
 ##<<simData, cache=true>>=
 ## simulate small autohexaploid data set of 500 markers for 200 individuals
@@ -35,13 +35,13 @@ print(hexmarkers)
 
 
 ###################################################
-### code chunk number 5: polySegratioMM-overview.Rnw:108-109
+### code chunk number 5: polySegratioMM-overview.Rnw:109-110
 ###################################################
 sr <-  segregationRatios(hexmarkers$markers)
 
 
 ###################################################
-### code chunk number 6: polySegratioMM-overview.Rnw:115-118
+### code chunk number 6: polySegratioMM-overview.Rnw:116-119
 ###################################################
 print(plotTheoretical(ploidy.level=6, seg.ratios=sr, main="",
   	    expected.segratio=NULL, proportions=c(0.7,0.2,0.1),
@@ -49,7 +49,7 @@ print(plotTheoretical(ploidy.level=6, seg.ratios=sr, main="",
 
 
 ###################################################
-### code chunk number 7: polySegratioMM-overview.Rnw:141-148
+### code chunk number 7: polySegratioMM-overview.Rnw:142-149
 ###################################################
 ##<<simDataOver, cache=true>>=
 ## simulate small autohexaploid data set of 500 markers for 200 individuals
@@ -61,13 +61,13 @@ data(hexmarkers.overdisp)
 
 
 ###################################################
-### code chunk number 8: polySegratioMM-overview.Rnw:154-155
+### code chunk number 8: polySegratioMM-overview.Rnw:155-156
 ###################################################
 sr.overdisp <-  segregationRatios(hexmarkers.overdisp$markers)
 
 
 ###################################################
-### code chunk number 9: polySegratioMM-overview.Rnw:160-163
+### code chunk number 9: polySegratioMM-overview.Rnw:161-164
 ###################################################
 print(plotTheoretical(ploidy.level=6, seg.ratios=sr.overdisp, main="",
   expected.segratio=NULL, proportions=c(0.7,0.2,0.1),
@@ -75,13 +75,13 @@ print(plotTheoretical(ploidy.level=6, seg.ratios=sr.overdisp, main="",
 
 
 ###################################################
-### code chunk number 10: polySegratioMM-overview.Rnw:267-268
+### code chunk number 10: polySegratioMM-overview.Rnw:268-269
 ###################################################
 x.mod1 <- setModel(3,6)  # autohexaploid model with 3 components
 
 
 ###################################################
-### code chunk number 11: polySegratioMM-overview.Rnw:292-297
+### code chunk number 11: polySegratioMM-overview.Rnw:293-298
 ###################################################
 ## produced using the following but loaded as data to avoid the run time on slow machines
 ##mcmcHexRun <- runSegratioMM(sr.overdisp, x.mod1, burn.in=200, sample=500, plots=FALSE)
@@ -91,43 +91,43 @@ data(mcmcHexRun)
 
 
 ###################################################
-### code chunk number 12: polySegratioMM-overview.Rnw:308-309
+### code chunk number 12: polySegratioMM-overview.Rnw:309-310
 ###################################################
 print(mcmcHexRun$run.jags)
 
 
 ###################################################
-### code chunk number 13: polySegratioMM-overview.Rnw:313-314
+### code chunk number 13: polySegratioMM-overview.Rnw:314-315
 ###################################################
 print(mcmcHexRun$summary)
 
 
 ###################################################
-### code chunk number 14: polySegratioMM-overview.Rnw:321-322
+### code chunk number 14: polySegratioMM-overview.Rnw:322-323
 ###################################################
 print(mcmcHexRun$diagnostics)
 
 
 ###################################################
-### code chunk number 15: polySegratioMM-overview.Rnw:326-327
+### code chunk number 15: polySegratioMM-overview.Rnw:327-328
 ###################################################
 print(mcmcHexRun$doses)
 
 
 ###################################################
-### code chunk number 16: polySegratioMM-overview.Rnw:338-339
+### code chunk number 16: polySegratioMM-overview.Rnw:339-340
 ###################################################
 print(plot(mcmcHexRun$mcmc.mixture$mcmc.list[[1]][,c("P[1]","mu[1]","sigma","T[140]")]))
 
 
 ###################################################
-### code chunk number 17: polySegratioMM-overview.Rnw:364-365
+### code chunk number 17: polySegratioMM-overview.Rnw:365-366
 ###################################################
 print(plot(mcmcHexRun, theoretical=TRUE, main=""))
 
 
 ###################################################
-### code chunk number 18: polySegratioMM-overview.Rnw:396-400
+### code chunk number 18: polySegratioMM-overview.Rnw:397-401
 ###################################################
 cat("Employing maximum posterior probability\n")
 table(Dose=mcmcHexRun$doses$max.post.dosage, exclude=NULL)
@@ -136,7 +136,7 @@ table(Dose=mcmcHexRun$doses$dosage[,"0.8"], exclude=NULL)
 
 
 ###################################################
-### code chunk number 19: polySegratioMM-overview.Rnw:409-418
+### code chunk number 19: polySegratioMM-overview.Rnw:410-419
 ###################################################
 cat("Employing theChi squared test\n")
 dose.chi <- test.segRatio(sr.overdisp, ploidy.level = 6)
